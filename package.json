@@ -1,8 +1,8 @@
 {
   "scripts": {
     "server": "cd server && nodemon server",
-    "client": "cd frontend && yarn start",
-    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "client": "cd frontend && yarn install && yarn start",
+    "start": "yarn install && concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "test": "jest ./server/router/test.js"
   },
   "dependencies": {
