@@ -11,5 +11,5 @@ All meeting notes can be found in the meeting folder (CSC302-team-project/docume
 
 2. Preliminary project roadmap: csc302-project-roadmap.jpg
 
-3. Documentation of tech stack and toolchain: tech-stack.md
+3. Documentation of tech stack and toolchain: tech-stack.pdf
 
