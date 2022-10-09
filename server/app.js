@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 const port = 4000;
-const test = require("./router/test");
+const nothing = require("./router/nothing");
 
-app.use("/api", test);
+app.use("/api", nothing);
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
