@@ -9,7 +9,7 @@ We ultimately decided against having installation commands for every OS, and onl
 
 ## (Linux) Startup Script 
 
-Our one-command startup script for Linux environment is 'sh startup.sh'
+Our one-command startup script for Linux environment is `sh startup.sh`
 
 ## (Mac and Windows) Setup via Docker
 
@@ -17,7 +17,7 @@ Note: you only need to run step 2 if Docker is installed.
 
 1. Install Docker Desktop via https://www.docker.com/products/docker-desktop/
 
-2. Run docker-compose up -d --build
+2. Run `docker-compose up -d --build`
 
 ## (All OS) Setup without Docker
 
