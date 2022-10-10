@@ -5,6 +5,8 @@ All assignment deliverables (including meeting notes) can be found in the docume
 The setup scripts below contain different options depending on the user's hardware and preference.
 Although we only have a one-command install and setup script for Linux users, other OS users will only need to follow few simple steps to install the required application(s) before they can run the application with a single command.
 
+We ultimately decided against having installation commands for every OS, and only providing it for Linux for the TA/ professor for grading purposes as the setup is straightforward for everyone on the team, and once everything is installed, we're able to install dependencies and start the application with a single command.
+
 ## (Linux) Startup Script 
 
 Our one-command startup script for Linux environment is 'sh startup.sh'
@@ -28,3 +30,8 @@ To install our preferred package manager.
 
 3. Run `yarn start`
 To install all dependencies and start both backend and frontend application.
+
+
+## Testing
+
+Run `yarn test` to run all tests.
