@@ -1,6 +1,6 @@
 # CSC302-team-project
 
-All assignment deliverables (including meeting notes) can be found in the documents folder.
+**All assignment deliverables (including meeting notes) can be found in the documents folder.**
 
 The setup scripts below contain different options depending on the user's hardware and preference.
 Although we only have a one-command install and setup script for Linux users, other OS users will only need to follow few simple steps to install the required application(s) before they can run the application with a single command.
