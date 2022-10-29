@@ -1,18 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+import DashboardGridLayout from './page-components/DashboardGridLayout';
+import PageHeader from './page-components/PageHeader';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          I am the frontend! I will be talking to the server!
-        </p>
-        <p>
-          P.S. You can find the server on localhost:4000
-        </p>
-      </header>
+    <div>
+      <BrowserRouter>
+        <PageHeader/>
+        <Routes>
+          <Route path="/" element={<DashboardGridLayout/>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
