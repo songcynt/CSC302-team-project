@@ -13,4 +13,4 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
-module.exports = app.listen(4000);
+module.exports = app;
