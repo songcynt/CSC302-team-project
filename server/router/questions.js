@@ -2,7 +2,10 @@ const express = require("express");
 const router = express.Router();
 const sqlite3 = require("sqlite3").verbose();
 const fs = require("fs");
-fs.stat("data/source.db", (err, stats) => {
+
+const DATABASE_ROUTE = "../data/source.db";
+
+fs.stat(DATABASE_ROUTE, (err, stats) => {
   //Make sure the database exists
   if (err) {
     console.log(err);
@@ -12,7 +15,7 @@ fs.stat("data/source.db", (err, stats) => {
     console.log(stats);
   }
   const db = new sqlite3.Database(
-    "data/source.db",
+    DATABASE_ROUTE,
     sqlite3.OPEN_READWRITE,
     (err) => {
       if (err) {
