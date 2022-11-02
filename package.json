@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "server": "cd server && nodemon app.js",
+    "server": "cd server && yarn install && nodemon app.js",
     "client": "cd frontend && yarn install && yarn start",
     "start": "yarn install && concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "test": "jest ./server/router/test.js"
