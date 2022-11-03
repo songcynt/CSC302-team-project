@@ -7,5 +7,13 @@ describe('Testing Routes', function () {
   it('responds to /', async function() {
     const res = await requestWithSupertest.get('/');
     expect(res.status).toEqual(200);
+    expect(res.text).toEqual("I am running! I'm gonna talk to a database!");
+  });
+
+  it('responds to /api/question1', async function() {
+    const res = await requestWithSupertest.get('/api/question1');
+    expect(res.status).toEqual(200);
+    expect(res.body).toHaveProperty('salaries');
+    expect(res.body).toHaveProperty('departments');
   });
 });
