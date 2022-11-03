@@ -14,6 +14,8 @@ describe('Testing Routes', function () {
     const res = await requestWithSupertest.get('/api/question1');
     expect(res.status).toEqual(200);
     expect(res.body).toHaveProperty('salaries');
+    expect(res.body['salaries'].length > 0);
     expect(res.body).toHaveProperty('departments');
+    expect(res.body['departments'].length > 0);
   });
 });
