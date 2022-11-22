@@ -35,7 +35,7 @@ Score: 80%
 
 ---
 ## 2022-10-23
-Main question: how do you feel about what we've accomplished in A2?
+Main question: how do you feel about what we've accomplished in A1?
 
 Score:
 
