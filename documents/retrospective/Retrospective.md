@@ -2,6 +2,38 @@
 
 A history of all team retrospectives for this project
 
+## 2022-11-22
+
+Main question: how do you feel about what we've accomplished in A2?
+
+Score:
+
+Cynthia:        7/10
+Tevan:          8/10
+Sung Hyun:      9/10
+
+Score: 80%
+
+### What goals have been achieved?
+
+- Backend structure with routing and database connection
+- Frontend visualization with the necessary libraries
+- API testing
+- Documentation (developer setup, meeting notes, etc)
+
+### What goals have been missed, by how much?
+- Working setup of installation scripts
+    - Didn't properly check docker-compose setup (had typo)
+- Clean documentation
+    - some documentation were written last minute and could've been cleaned up before submitting
+
+### How plans were adjusted, in light of that information, including goals or features that were dropped, what other changes were made and why.
+- Kubernetes implementation (optional milestone)
+- Simulated Front-end Testing - not really testable with simple one-page front-end
+- new tasks such as adding new questions to the list of questions we can answer, followd by implementation
+- decide on structure/rules for dependencies (yarn vs npm, install dependencies in node modules in root vs server/frontend folders)
+
+---
 ## 2022-10-23
 Main question: how do you feel about what we've accomplished in A1?
 
