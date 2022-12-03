@@ -1,14 +1,26 @@
 import { useEffect, useState } from "react";
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto'; // need this import to fix "category is not a registered scale error"
+import axios from "axios";
 
 function PlaceholderLineChart(){
-    // Data to be fetched from backend; currently only supporting 1 line in chart
+
+    // todo optimization: move this to a centralized config file to be used for other components
+    const PORT = 4000; 
+    const BASE_ROUTE = `http://localhost:${PORT}/api`;
+
+    const ENDPOINT = "/question2";
+    const DATA_SOURCE = `${BASE_ROUTE}${ENDPOINT}`;
+
+    const TITLE = "What department has the highest proportion of their total compensation in benefits?";
+
+    // Expected label descriptions
+    const DATA_DESCRIPTION = ["department"];
+
+    // Dummy data before fetching from backend
     const [chartData, setChartData] = useState({
-        title: "need title",
-        description: "need description",
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-        data: [33, 53, 85, 41, 44, 65]
+        labels: ["fetching data"],
+        data: [1]
     })
 
     // Data to go into chart component
@@ -31,7 +43,7 @@ function PlaceholderLineChart(){
             {
                 labels: chartData.labels,
                 datasets: [{
-                    label: chartData.description,
+                    label: DATA_DESCRIPTION[0],
                     data: chartData.data,
                     fill: true,
                     borderColor: "rgba(75,192,192,1)",
@@ -42,13 +54,25 @@ function PlaceholderLineChart(){
         )
     }, [chartData])
 
+    // Call once to fetch and format data
+    useEffect(() => {
+        axios.get(DATA_SOURCE).then((response) => {
+            setChartData(
+                {
+                    labels: response.data.labels,
+                    data: response.data.data
+                }
+            )
+        })
+    }, [])
+
     return (
         <div>
             <Line
                 data={chartInput}
                 options={
                     {plugins: {
-                        title: {display: true, text: chartData.title}
+                        title: {display: true, text: TITLE}
                     }}
                 }
             >
