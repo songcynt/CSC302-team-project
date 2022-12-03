@@ -15,6 +15,8 @@ Our one-command startup script for Linux environment is `sh startup.sh`
 
 Note: you only need to run step 2 if Docker is installed.
 
+We've used `Docker version 20.10.14, build a224086` and `docker-compose version 1.29.2, build 5becea4c`.
+
 1. Install Docker Desktop via https://www.docker.com/products/docker-desktop/
 
 2. Run `docker-compose up -d --build`
