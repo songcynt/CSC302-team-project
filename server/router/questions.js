@@ -3,7 +3,7 @@ const router = express.Router();
 const sqlite3 = require("sqlite3").verbose();
 const fs = require("fs");
 
-const DATABASE_ROUTE = "../data/source.db";
+const DATABASE_ROUTE = "./data/source.db";
 
 fs.stat(DATABASE_ROUTE, (err, stats) => {
   //Make sure the database exists

@@ -16,7 +16,7 @@ services:
       # Syntax <nameOfVolume>:<directorInDocker>
       # ADD THE CONFIGURATION FROM THIS POINT to sync the working directory
       # for the application to the /app directory in the container
-      - ./server
+      - ./server:/server
       - /server/node_modules
   # Add the react service
   react:
