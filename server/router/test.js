@@ -18,4 +18,13 @@ describe('Testing Routes', function () {
     expect(res.body).toHaveProperty('departments');
     expect(res.body['departments'].length > 0);
   });
+
+  it('responds to /api/question2', async function() {
+    const res = await requestWithSupertest.get('/api/question2');
+    expect(res.status).toEqual(200);
+    expect(res.body).toHaveProperty('labels');
+    expect(res.body['labels'].length > 0);
+    expect(res.body).toHaveProperty('data');
+    expect(res.body['data'].length > 0);
+  });
 });
