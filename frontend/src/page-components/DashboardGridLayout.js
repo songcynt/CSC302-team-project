@@ -1,7 +1,7 @@
 import React from 'react';
 import ResponsiveGridLayout from 'react-grid-layout';
 import Paper from '@mui/material/Paper';
-import PlaceholderLineChart from '../data-components/PlaceholderLineChart';
+import Question2ChartGraph from '../data-components/Question2ChartGraph';
 import Question1BarGraph from '../data-components/Question1BarGraph';
 
 function DashboardGridLayout(){
@@ -27,7 +27,7 @@ function DashboardGridLayout(){
       </div>
       <div key="2">
         <Paper>
-          <PlaceholderLineChart/>
+          <Question2ChartGraph/>
         </Paper>
       </div>
     </ResponsiveGridLayout>
