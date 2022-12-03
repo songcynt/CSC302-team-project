@@ -47,5 +47,38 @@ fs.stat(DATABASE_ROUTE, (err, stats) => {
       res.send({salaries, departments});
     });
   });
+
+  router.get("/question2", (req, res) => {
+    db.all("SELECT TotalBenefits, TotalCompensation, Department FROM Employee_Compensation_SF", (err, rows) => {
+      if (err) {
+        console.error(err.message);
+      }
+      let n = rows.length;
+      let benefits = {};
+      let compenstations = {};
+      for(let i = 0; i < n; i++){
+        if(rows[i].Department in benefits && rows[i].Department in compenstations){
+          benefits[rows[i].Department].push(rows[i].TotalBenefits);
+          compenstations[rows[i].Department].push(rows[i].TotalCompensation);
+        }else{
+          benefits[rows[i].Department] = [rows[i].TotalBenefits];
+          compenstations[rows[i].Department] = [rows[i].TotalCompensation];
+        }
+      }
+      let labels = [];
+      let benefit = [];
+      let compensation = [];
+      for(let key in benefits){
+        benefit.push((benefits[key].reduce((a, b) => a + b, 0) / benefits[key].length).toFixed(2));
+        compensation.push((compenstations[key].reduce((a, b) => a + b, 0) / compenstations[key].length).toFixed(2));
+        labels.push(key);
+      }
+      let data = [];
+      for(let i = 0; i < benefit.length; i++){
+        data[i] = benefit[i]/compensation[i]
+      }
+      res.send({labels, data});
+    });
+  });
 });
 module.exports = router;
