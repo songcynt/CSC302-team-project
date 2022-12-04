@@ -8,6 +8,9 @@ app.use(cors({
   origin: ['http://localhost:3000']
 }));
 
+// Import logger
+const log = require("./router/logger");
+
 // Import Endpoints
 const questionsRouter = require("./router/questions");
 
@@ -18,7 +21,7 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  log.info(`Example app listening on port ${port}`)
 })
 
 module.exports = app;

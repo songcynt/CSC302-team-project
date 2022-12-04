@@ -3,33 +3,39 @@ const router = express.Router();
 const sqlite3 = require("sqlite3").verbose();
 const fs = require("fs");
 
+// Configure logger
+const log = require("./logger");
+
 const DATABASE_ROUTE = "./data/source.db";
 
 fs.stat(DATABASE_ROUTE, (err, stats) => {
   //Make sure the database exists
   if (err) {
-    console.log(err);
-    console.log("Database file does not exist");
+    log.fatal(err, "Database file does not exist");
     return;
   } else {
-    console.log(stats);
+    log.info(stats)
   }
   const db = new sqlite3.Database(
     DATABASE_ROUTE,
     sqlite3.OPEN_READWRITE,
     (err) => {
       if (err) {
+        log.fatal(err, "Couldn't connect to the database");
         console.error(err.message);
       }
-      console.log("Connected to the database.");
+      log.info("Successfully connected to the database")
     }
   );
   router.get("/question1", (req, res) => {
+    log.info("Q1 route has been called")
     db.all("SELECT Salaries, Department FROM Employee_Compensation_SF", (err, rows) => {
       if (err) {
+        log.error(err, "An error occurred while running a query")
         console.error(err.message);
       }
       let n = rows.length;
+      log.info(`Query contains ${n} rows of data`)
       let info = {};
       for(let i = 0; i < n; i++){
         if(rows[i].Department in info){
@@ -44,16 +50,20 @@ fs.stat(DATABASE_ROUTE, (err, stats) => {
         salaries.push((info[key].reduce((a, b) => a + b, 0) / info[key].length).toFixed(2));
         departments.push(key);
       }
+      log.info(`salaries DTO: ${salaries}; departments DTO: ${departments}`);
       res.send({salaries, departments});
     });
   });
 
   router.get("/question2", (req, res) => {
+    log.info("Q2 route has been called")
     db.all("SELECT TotalBenefits, TotalCompensation, Department FROM Employee_Compensation_SF", (err, rows) => {
       if (err) {
+        log.error(err, "An error occurred while running a query")
         console.error(err.message);
       }
       let n = rows.length;
+      log.info(`Query contains ${n} rows of data`)
       let benefits = {};
       let compenstations = {};
       for(let i = 0; i < n; i++){
@@ -77,6 +87,7 @@ fs.stat(DATABASE_ROUTE, (err, stats) => {
       for(let i = 0; i < benefit.length; i++){
         data[i] = benefit[i]/compensation[i]
       }
+      log.info(`labels DTO: ${labels}; data DTO: ${data}`);
       res.send({labels, data});
     });
   });
