@@ -37,3 +37,11 @@ To install all dependencies and start both backend and frontend application.
 ## Testing
 
 Run `yarn test` to run all tests.
+
+## Validation, Verification, Acceptance Criteria
+
+We have a thorough process of making sure our team jointly agrees on the criteria so satisfy sub-tasks within the progressive development of our software.
+
+We use issues to track some of our work, and lay out descriptive titles and descriptions to correctly identify task information - these are our main criteria.
+
+Our verification and validation process lies within our peer-reviewing of PRs - enforced by our repository settings of protected main branch and forced development through branches with required peer reviews.
