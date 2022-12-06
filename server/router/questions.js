@@ -91,5 +91,26 @@ fs.stat(DATABASE_ROUTE, (err, stats) => {
       res.send({labels, data});
     });
   });
+
+  router.get("/question3", (req, res) => {
+    log.info("Q3 route has been called")
+    db.all("SELECT Retirement, TotalCompensation FROM Employee_Compensation_SF WHERE JobFamily = 'Professional Engineering' OR JobFamily = 'Sub-Professional Engineering' ORDER BY TotalCompensation", (err, rows) => {
+      if (err) {
+        log.error(err, "An error occurred while running a query")
+        console.error(err.message);
+      }
+      let n = Math.round(rows.length/10)-1;
+      log.info(`Query contains ${n} rows of data`)
+      let datapoints = []
+
+      for (let i = 0; i < n; i++){
+        let totalComp = Math.round(rows[i*10].TotalCompensation)
+        let retirement = Math.round(rows[i*10].Retirement)
+        datapoints.push({x: totalComp, y: retirement});
+      }
+
+      res.send({datapoints});
+    });
+  });
 });
 module.exports = router;

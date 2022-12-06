@@ -22,7 +22,6 @@ function PageHeader() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             404Pikachu
           </Typography>
-          <Button color="inherit">Placeholder</Button>
         </Toolbar>
       </AppBar>
     </Box>
