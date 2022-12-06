@@ -3,7 +3,7 @@ import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto'; // need this import to fix "category is not a registered scale error"
 import axios from "axios";
 
-function PlaceholderLineChart(){
+function Question2ChartGraph(){
 
     // todo optimization: move this to a centralized config file to be used for other components
     const PORT = 4000; 
@@ -83,4 +83,4 @@ function PlaceholderLineChart(){
  
 }
 
-export default PlaceholderLineChart;
+export default Question2ChartGraph;
